@@ -81,5 +81,12 @@ JOIN fornecedores f ON prod.idfornecedor = f.id_fornecedores;
 -- Consulta os produtos e seus respectivos fornecedores
 SELECT * FROM ViewProdutosFornecedores;
 
+CREATE VIEW FaturamentoDiario AS
+SELECT 
+    DATE(data_pedido) AS Dia,
+    SUM(valor_total) AS Faturamento
+FROM pedidos
+GROUP BY Dia;
+
 
 
